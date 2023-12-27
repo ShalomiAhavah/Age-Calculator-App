@@ -1,0 +1,95 @@
+
+//Variables
+@purple:hsl(259, 100%, 65%);
+@white:hsl(0, 0%, 100%);
+@offWhite:hsl(0, 0%, 94%);
+@lightRed:hsl(0, 100%, 67%);
+@lightGrey: hsl(0, 0%, 86%);
+@smokeyGrey: hsl(0, 1%, 44%);
+@offBlack: hsl(0, 0%, 8%);
+
+
+//Defaul Reset
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+//Body
+body{
+    background: @offWhite;
+    height: 100vh;
+    width:100vw;
+    display: grid;
+    place-content: center;
+}
+
+
+#card {
+    height: 50vh;
+    width: 90vw;
+    background-color: @white;
+    border-radius: 20px 20px 35% 20px;
+}
+
+//Inputs
+input{
+    width: 23vw;
+    height: 14vw;
+    border: 1px solid @lightGrey;
+    border-radius: 10px;
+    color: black;
+    font-size: 5vw;
+    padding: 0 3vw;
+}
+
+#input-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5vh 0;
+}
+
+.date-label{
+    color: @smokeyGrey;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 2.5px;
+}
+
+
+//Convert Button
+.hor-line{
+    width: 70%;
+    height: 1px;
+    background-color: @lightGrey;
+    margin: 15vw auto 0 auto;
+}
+
+button{
+    height: 16vw;
+    width: 16vw;
+    display: block;
+    background: @purple;
+    border: none;
+    border-radius: 50%;
+    margin:-8vw auto 15vw auto;
+}
+.icon{
+    width: 8vw;
+}
+
+
+
+
+
+
+
+
+
+//Attribution
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
