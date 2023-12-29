@@ -22,7 +22,7 @@ input {
   height: 14vw;
   border: 1px solid hsl(0, 0%, 86%);
   border-radius: 10px;
-  color: black;
+  color: black !important;
   font-size: 5vw;
   padding: 0 3vw;
 }
@@ -54,6 +54,30 @@ button {
 }
 .icon {
   width: 8vw;
+}
+.output-container {
+  margin: 0 10vw;
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+  color: hsl(0, 0%, 8%);
+}
+.output span {
+  margin: 0 1vw 0 0;
+  color: hsl(259, 100%, 65%);
+}
+.error-field {
+  font-size: 2.5vw;
+  font-weight: 400px;
+  font-style: italic;
+  color: red;
+}
+.error-state {
+  color: red;
+  border: 1.5px solid red;
+}
+p.error-state {
+  border: none;
 }
 .attribution {
   font-size: 11px;

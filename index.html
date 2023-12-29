@@ -16,27 +16,34 @@
 <body>
 <div id="card">
   <div id="input-container">
-    <div class="day-input">
-      <p class="date-label">Day</p>
+    <div class="day-input ">
+      <p class="date-label" id="day-date-label">Day</p>
       <input type="number" placeholder="DD" class="date-input-field" id="day-input-field">
+      <p class="error-field" id="error-field-day"></p>
     </div>
     <div class="month-input">
-      <p class="date-label">Month</p>
+      <p class="date-label" id="month-date-label">Month</p>
       <input type="number" placeholder="MM" class="date-input-field" id="month-input-field">
+      <p class="error-field" id="error-field-month"></p>
     </div>
     <div class="year-input">
-      <p class="date-label">Year</p>
+      <p class="date-label" id="year-date-label">Year</p>
       <input type="number" placeholder="YYYY" class="date-input-field" id="year-input-field">
+      <p class="error-field" id="error-field-year"></p>
     </div>
   </div>
+
   <div class="hor-line"></div>
-  <button id="convert-button">
+  <button type="submit" id="convert-button" onclick="checkIfEmpty()">
     <img src="/assets/images/icon-arrow.svg" alt="" class="icon">
   </button>
 
-  -- years
-  -- months
-  -- days
+  <div class="output-container">
+    <div class="output"><span id="year-output">--</span>years</div>
+    <div class="output"><span id="month-output">--</span>months</div>
+    <div class="output"><span id="day-output">--</span>days</div>
+  </div>
+
   
 </div>
 
@@ -44,5 +51,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
+<script src="script.js"></script>
 </body>
 </html>
