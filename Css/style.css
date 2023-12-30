@@ -6,16 +6,16 @@
 }
 body {
   background: hsl(0, 0%, 94%);
-  height: 100vh;
-  width: 100vw;
   display: grid;
   place-content: center;
+  overflow-x: hidden;
 }
 #card {
-  height: 50vh;
+  height: 60vh;
   width: 90vw;
   background-color: hsl(0, 0%, 100%);
   border-radius: 20px 20px 35% 20px;
+  margin-top: 10vh;
 }
 input {
   width: 23vw;
@@ -25,6 +25,10 @@ input {
   color: black !important;
   font-size: 5vw;
   padding: 0 3vw;
+}
+input:active,
+input:focus {
+  outline: 1px solid hsl(259, 100%, 65%);
 }
 #input-container {
   display: flex;
@@ -37,20 +41,28 @@ input {
   letter-spacing: 2px;
   margin: 2.5px;
 }
+.button-wrapper {
+  height: 16vw;
+  background-color: aqua;
+}
 .hor-line {
   width: 70%;
   height: 1px;
   background-color: hsl(0, 0%, 86%);
-  margin: 15vw auto 0 auto;
+  position: absolute;
+  margin: 9vw auto;
 }
-button {
+#convert-button {
   height: 16vw;
-  width: 16vw;
+  aspect-ratio: 1;
   display: block;
   background: hsl(259, 100%, 65%);
   border: none;
   border-radius: 50%;
-  margin: -8vw auto 15vw auto;
+}
+#convert-button:hover {
+  background: hsl(0, 0%, 8%);
+  cursor: pointer;
 }
 .icon {
   width: 8vw;
@@ -61,6 +73,7 @@ button {
   font-weight: 800;
   font-style: italic;
   color: hsl(0, 0%, 8%);
+  position: absolute;
 }
 .output span {
   margin: 0 1vw 0 0;
@@ -78,6 +91,54 @@ button {
 }
 p.error-state {
   border: none;
+}
+@media only screen and (min-width: 600px) {
+  #card {
+    height: 60vw;
+    width: 75vw;
+  }
+  #input-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5vh 0;
+  }
+  input {
+    width: 13vw;
+    height: 6vw;
+    font-size: 2.5vw;
+  }
+  .error-field {
+    font-size: 1.3vw;
+  }
+  .date-label {
+    font-size: 1.3vw;
+    padding: 3px 0;
+  }
+  #convert-button {
+    width: 8vw;
+    height: 8vw;
+    margin: -3vh 63vw;
+    z-index: 5;
+  }
+  .icon {
+    scale: 0.6;
+  }
+  .hor-line {
+    width: 57vw;
+    position: absolute;
+    margin: 2vh 5.5vw;
+    z-index: 0;
+  }
+  .output-container {
+    margin: 2vh 10vw;
+  }
+  .output {
+    font-size: 8vw;
+  }
+  .output span {
+    letter-spacing: 7px;
+  }
 }
 .attribution {
   font-size: 11px;
