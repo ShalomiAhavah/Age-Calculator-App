@@ -46,7 +46,6 @@ function checkForValidity() {
     }
   }
 }
-
 function checkDayValidity() {
   let day = dayInput.value;
   let month = monthInput.value;
@@ -69,8 +68,6 @@ function checkDayValidity() {
     dayInput.classList.add("error-state");
     dayLabel.classList.add("error-state");
   }
-
-  countYearsSince();
 }
 
 function checkMonthValidity() {
@@ -82,19 +79,21 @@ function checkMonthValidity() {
     console.log();
   }
 }
+var yearIsValid = true;
 
 function checkYearValidity() {
-  var yearIsValid = false;
-  console.log(yearIsValid);
+  yearOutput.innerHTML = "--";
   if (yearInput.value > currentYear) {
     yearInputError.innerHTML = errorMessageYear;
     yearInput.classList.add("error-state");
     yearLabel.classList.add("error-state");
-    yearIsValid = true;
+    yearIsValid = false;
+    return yearIsValid;
+  } else {
+    countYearsSince();
   }
 }
 
-// checkIfEmpty();
 function countYearsSince() {
   let inputYear = yearInput.value;
   inputYear = Number(inputYear);

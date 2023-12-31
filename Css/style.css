@@ -24,7 +24,7 @@ input {
   border-radius: 10px;
   color: black !important;
   font-size: 5vw;
-  padding: 0 3vw;
+  padding: 0 1vw 0 3vw;
 }
 input:active,
 input:focus {
@@ -42,15 +42,17 @@ input:focus {
   margin: 2.5px;
 }
 .button-wrapper {
-  height: 16vw;
-  background-color: aqua;
+  height: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .hor-line {
-  width: 70%;
   height: 1px;
+  width: 84vw;
   background-color: hsl(0, 0%, 86%);
   position: absolute;
-  margin: 9vw auto;
 }
 #convert-button {
   height: 16vw;
@@ -59,6 +61,7 @@ input:focus {
   background: hsl(259, 100%, 65%);
   border: none;
   border-radius: 50%;
+  z-index: 2;
 }
 #convert-button:hover {
   background: hsl(0, 0%, 8%);
@@ -115,26 +118,30 @@ p.error-state {
     font-size: 1.3vw;
     padding: 3px 0;
   }
+  .button-wrapper {
+    width: 75vw;
+    display: flex;
+    flex-direction: row;
+  }
+  .hor-line {
+    height: 1px;
+    width: 62%;
+    background-color: hsl(0, 0%, 86%);
+  }
   #convert-button {
     width: 8vw;
     height: 8vw;
-    margin: -3vh 63vw;
-    z-index: 5;
+    margin: 0vh -60vw 0 0;
   }
   .icon {
     scale: 0.6;
-  }
-  .hor-line {
-    width: 57vw;
-    position: absolute;
-    margin: 2vh 5.5vw;
-    z-index: 0;
   }
   .output-container {
     margin: 2vh 10vw;
   }
   .output {
-    font-size: 8vw;
+    font-size: 9vw;
+    line-height: 10vw;
   }
   .output span {
     letter-spacing: 7px;
