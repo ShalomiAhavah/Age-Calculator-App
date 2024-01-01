@@ -97,7 +97,7 @@ p.error-state {
 }
 @media only screen and (min-width: 600px) {
   #card {
-    height: 60vw;
+    height: 55vw;
     width: 75vw;
   }
   #input-container {
@@ -150,6 +150,7 @@ p.error-state {
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: 20vh;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);

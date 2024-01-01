@@ -110,6 +110,7 @@ function checkYearValidity() {
     yearInput.classList.add("error-state");
     yearLabel.classList.add("error-state");
     yearIsValid = false;
+    console.log(yearInput.value);
     return yearIsValid;
   } else {
     countYearsSince();
@@ -120,7 +121,7 @@ function countYearsSince() {
   let inputYear = yearInput.value;
   inputYear = Number(inputYear);
   let yearsSince = currentYear - inputYear;
-  if (yearIsValid) {
+  if (yearIsValid && inputYear != "") {
     yearOutput.innerHTML = yearsSince - 1;
   }
 }
