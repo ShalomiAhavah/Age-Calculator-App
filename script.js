@@ -31,12 +31,14 @@ var monthIsValid = true;
 var dayIsValid = true;
 
 function checkForValidity() {
+  yearIsValid = true;
+  monthIsValid = true;
+  dayIsValid = true;
   for (i = 0; i < inputArray.length; i++) {
     let errorField = errorArray[i];
     let label = errorClassAssignLabel[i];
 
     if (inputArray[i].value === "") {
-      //Assigns errors if empty
       errorField.innerHTML = errorMessageEmpty;
       inputArray[i].classList.add("error-state");
       label.classList.add("error-state");
@@ -53,24 +55,20 @@ function checkForValidity() {
 
 function checkDayValidity() {
   let day = dayInput.value;
-  day = Number(day);
-  let todayPre = new Date();
-  let today = todayPre.getDay();
-
   let month = monthInput.value;
+  let todayPre = new Date();
+  var today = todayPre.getDay();
+  let monthParts = 31 - today;
+  day = Number(day);
   month = Number(month);
-  console.log(typeof today);
   if (day > 31 || day < 1) {
     dayErrorActions();
   }
-  if (shortMonths.includes(month)) {
-    if (day === 31) {
-      dayErrorActions();
-    }
+  if (shortMonths.includes(month) && day === 31) {
+    dayErrorActions();
   }
   if (dayIsValid) {
-    console.log(todayPre.getDay());
-    dayOutput.innerHTML = today - day;
+    dayOutput.innerHTML = monthParts - day;
   }
 
   function dayErrorActions() {
@@ -98,10 +96,10 @@ function checkMonthValidity() {
 }
 function countMonthsSince() {
   let monthss = new Date();
-  var monthsss = monthss.getMonth() + 1;
+  var monthsss = monthss.getMonth();
+  var yearParts = 12 - monthsss;
   if (monthIsValid) {
-    monthOutput.innerHTML = monthsss - monthInput.value;
-    console.log(monthIsValid);
+    monthOutput.innerHTML = yearParts - monthInput.value;
   }
 }
 
@@ -123,6 +121,20 @@ function countYearsSince() {
   inputYear = Number(inputYear);
   let yearsSince = currentYear - inputYear;
   if (yearIsValid) {
-    yearOutput.innerHTML = yearsSince;
+    yearOutput.innerHTML = yearsSince - 1;
   }
 }
+console.log(
+  "%cThank you for checking out my code <3",
+  "color: purple;background: lightblue; font-family: Optima"
+);
+console.groupCollapsed("My links <3");
+console.info("%cGithub: https://github.com/ShalomiAhavah", "color: pink");
+console.info(
+  "%cFrontEndMentor: https://www.frontendmentor.io/profile/ShalomiAhavah",
+  "color: pink"
+);
+console.info(
+  "%cDiscord: https://discordapp.com/users/800363625524363284",
+  "color: pink"
+);
