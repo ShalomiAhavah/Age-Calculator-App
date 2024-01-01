@@ -16,8 +16,8 @@ var errorClassAssignLabel = [yearLabel, monthLabel, dayLabel];
 var convertInput = document.querySelector("#convert-button");
 
 var yearOutput = document.querySelector("#year-output");
-var monthOutput = document.querySelector("#year-output");
-var dayOutput = document.querySelector("#year-output");
+var monthOutput = document.querySelector("#month-output");
+var dayOutput = document.querySelector("#day-output");
 
 var errorMessageEmpty = "This field is required";
 var errorMessageDayMonth = "Must be a valid ";
@@ -25,6 +25,10 @@ var errorMessageYear = "Must be in the past";
 
 var shortMonths = [2, 4, 6, 9, 11];
 var currentYear = new Date().getFullYear();
+
+var yearIsValid = true;
+var monthIsValid = true;
+var dayIsValid = true;
 
 function checkForValidity() {
   for (i = 0; i < inputArray.length; i++) {
@@ -40,26 +44,33 @@ function checkForValidity() {
       errorField.innerHTML = "";
       label.classList.remove("error-state");
       inputArray[i].classList.remove("error-state");
-      checkDayValidity();
-      checkMonthValidity();
-      checkYearValidity();
     }
   }
+  checkDayValidity();
+  checkMonthValidity();
+  checkYearValidity();
 }
+
 function checkDayValidity() {
   let day = dayInput.value;
+  day = Number(day);
+  let todayPre = new Date();
+  let today = todayPre.getDay();
+
   let month = monthInput.value;
   month = Number(month);
-  day = Number(day);
+  console.log(typeof today);
   if (day > 31 || day < 1) {
-    //Checks if the day is between 1 and 31
     dayErrorActions();
   }
   if (shortMonths.includes(month)) {
     if (day === 31) {
       dayErrorActions();
-      console.log("short");
     }
+  }
+  if (dayIsValid) {
+    console.log(todayPre.getDay());
+    dayOutput.innerHTML = today - day;
   }
 
   function dayErrorActions() {
@@ -67,19 +78,32 @@ function checkDayValidity() {
     dayInputError.innerHTML = errorMessageDayMonth + x;
     dayInput.classList.add("error-state");
     dayLabel.classList.add("error-state");
+    dayIsValid = false;
   }
 }
 
 function checkMonthValidity() {
-  if (monthInput.value > 12) {
+  var monthIn = monthInput.value;
+  monthIn = Number(monthIn);
+  if (monthIn > 12 || monthIn < 1) {
     let x = "month";
     monthInputError.innerHTML = errorMessageDayMonth + x;
     monthInput.classList.add("error-state");
     monthLabel.classList.add("error-state");
-    console.log();
+    monthIsValid = false;
+  } else {
+    monthIsValid = true;
+    countMonthsSince();
   }
 }
-var yearIsValid = true;
+function countMonthsSince() {
+  let monthss = new Date();
+  var monthsss = monthss.getMonth() + 1;
+  if (monthIsValid) {
+    monthOutput.innerHTML = monthsss - monthInput.value;
+    console.log(monthIsValid);
+  }
+}
 
 function checkYearValidity() {
   yearOutput.innerHTML = "--";
